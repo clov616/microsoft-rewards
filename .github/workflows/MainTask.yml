@@ -1,0 +1,31 @@
+name: MainTask
+on:
+  push:
+    tags:
+      - "v*"
+  schedule:
+    - cron: '0 5 * * *' # 5:00 AM UTC
+  workflow_dispatch:  # 添加 workflow_dispatch 事件触发器
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+
+      - name: Build
+        run: CGO_ENABLED=0 go build -o run
+
+      - name: start
+        env:
+          MY_COOKIE: ${{ secrets.MY_COOKIE }}
+          IPS: ${{ secrets.IPS }}
+        run: |
+          chmod 773 run
+          ./run
