@@ -1,6 +1,8 @@
 name: clov614
 on:
   push:
+    branches:
+      - main
     tags:
       - "v*"
   schedule:

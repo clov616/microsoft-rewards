@@ -1,6 +1,8 @@
 name: zhyg
 on:
   push:
+    branches:
+      - main
     tags:
       - "v*"
   schedule:
