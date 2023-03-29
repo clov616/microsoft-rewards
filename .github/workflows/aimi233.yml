@@ -1,4 +1,4 @@
-name: aimi233
+﻿name: aimi233
 on:
   push:
     branches:
@@ -27,7 +27,7 @@ jobs:
       - name: start
         env:
           MY_COOKIE: ${{ secrets.AIMI233 }}
-          IPS: ${{ secrets.IPS }}
+          IPS: ${{ secrets.IPS4 }}
         run: |
           chmod 773 run
           ./run
