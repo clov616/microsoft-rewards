@@ -49,6 +49,7 @@ func (g Get) do(c *Conn, _type string) *grequests.Response {
 	if _type == "mb" {
 		g.RO.UserAgent = string(g.UAmb)
 		g.RO.Headers = map[string]string{
+			"referer":            "https://www.bing.com/",
 			"x-forwarded-for":    c.SetIP,
 			"sec-ch-ua-model":    "SM-G955U",
 			"sec-ch-ua-platform": "Android",
