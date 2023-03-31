@@ -48,6 +48,11 @@ func (g Get) do(c *Conn, _type string) *grequests.Response {
 
 	if _type == "mb" {
 		g.RO.UserAgent = string(g.UAmb)
+		g.RO.Headers = map[string]string{
+			"sec-ch-ua-model":    "SM-G955U",
+			"sec-ch-ua-platform": "Android",
+			"sec-ch-ua":          "\"Microsoft Edge\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111",
+		}
 	} else {
 		g.RO.UserAgent = string(g.UApc)
 	}
