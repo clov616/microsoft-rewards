@@ -44,7 +44,7 @@ func (g Get) do(c *Conn, _type string) *grequests.Response {
 	}
 	rand.Seed(time.Now().Unix()) // 设置随机数种子
 	keyword := c.Conf.KeyWords[rand.Intn(len(c.Conf.KeyWords))] + strconv.Itoa(rand.Intn(10000))
-	url := string(g.Url) + "?q=" + url.QueryEscape(keyword)
+	url := string(g.Url) + "?q=" + url.QueryEscape(keyword) + "&qs=ds&form=QBRE&pc=U598"
 
 	if _type == "mb" {
 		g.RO.UserAgent = string(g.UAmb)
